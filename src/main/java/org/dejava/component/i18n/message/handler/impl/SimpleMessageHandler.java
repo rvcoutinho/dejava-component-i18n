@@ -19,11 +19,11 @@ import org.dejava.component.validation.method.PreConditions;
 /**
  * Default i18n message handler. Handles getting messages from within a class using the information provided
  * by the annotations {@link MessageBundle}. Uses the default Java i18n API.
- * 
+ *
  * It works by searching the localized message bundle information at runtime (via annotations). If the
  * localized message (with this internationalization handler) cannot be found with the information of the
  * given type, it keeps looking in the super classes (and interfaces) until the localized message is found.
- * 
+ *
  * Enjoy Java i18n and l10n!
  */
 public class SimpleMessageHandler implements MessageHandler {
@@ -34,6 +34,11 @@ public class SimpleMessageHandler implements MessageHandler {
 	private static final long serialVersionUID = -6806683128717270649L;
 
 	/**
+	 * The default locale attribute name.
+	 */
+	public static String LOCALE_ATTR_NAME = Locale.class.getSimpleName().toLowerCase();
+
+	/**
 	 * If the message handler should raise an exception when the message is not found. If false, the message
 	 * key is returned when the message cannot be found.
 	 */
@@ -41,7 +46,7 @@ public class SimpleMessageHandler implements MessageHandler {
 
 	/**
 	 * Gets if the message handler should raise an exception when the message is not found.
-	 * 
+	 *
 	 * @return If the message handler should raise an exception when the message is not found.
 	 */
 	public Boolean getThrowsException() {
@@ -50,12 +55,12 @@ public class SimpleMessageHandler implements MessageHandler {
 
 	/**
 	 * Sets if the message handler should raise an exception when the message is not found.
-	 * 
+	 *
 	 * @param throwsException
 	 *            If the message handler should raise an exception when the message is not found. If false,
 	 *            the message key is returned when the message cannot be found.
 	 */
-	public void setThrowsException(Boolean throwsException) {
+	public void setThrowsException(final Boolean throwsException) {
 		this.throwsException = throwsException;
 	}
 
@@ -66,7 +71,7 @@ public class SimpleMessageHandler implements MessageHandler {
 
 	/**
 	 * Gets the locale for the messages.
-	 * 
+	 *
 	 * @return Locale for the messages.
 	 */
 	public Locale getLocale() {
@@ -81,14 +86,14 @@ public class SimpleMessageHandler implements MessageHandler {
 
 	/**
 	 * Protected constructor for the default internationalization message handler.
-	 * 
+	 *
 	 * @param locale
 	 *            Locale for the new instance.
 	 * @param throwsException
 	 *            If the message handler should raise an exception when the message is not found. If false,
 	 *            the message key is returned when the message cannot be found.
 	 */
-	protected SimpleMessageHandler(final Locale locale, Boolean throwsException) {
+	protected SimpleMessageHandler(final Locale locale, final Boolean throwsException) {
 		super();
 		// Sets the basic parameters.
 		this.locale = locale;
@@ -97,7 +102,7 @@ public class SimpleMessageHandler implements MessageHandler {
 
 	/**
 	 * Gets the message handler for the current environment.
-	 * 
+	 *
 	 * @param locale
 	 *            Locale for the message handler to use.
 	 * @param throwsException
@@ -105,16 +110,16 @@ public class SimpleMessageHandler implements MessageHandler {
 	 *            the message key is returned when the message cannot be found.
 	 * @return The message handler for the current environment.
 	 */
-	public static MessageHandler getMessageHandler(final Locale locale, Boolean throwsException) {
+	public static MessageHandler getMessageHandler(final Locale locale, final Boolean throwsException) {
 		// Creates a new instance of the default i18n message handler.
-		MessageHandler messageHandler = new SimpleMessageHandler(locale, throwsException);
+		final MessageHandler messageHandler = new SimpleMessageHandler(locale, throwsException);
 		// Returns the message handler.
 		return messageHandler;
 	}
 
 	/**
 	 * Gets the message handler for the current environment.
-	 * 
+	 *
 	 * @param locale
 	 *            Locale for the message handler to use.
 	 * @return The message handler for the current environment.
@@ -125,7 +130,7 @@ public class SimpleMessageHandler implements MessageHandler {
 
 	/**
 	 * Gets the message handler for the current environment with default locale.
-	 * 
+	 *
 	 * @return The message handler for the current environment with default locale.
 	 */
 	public static MessageHandler getDefaultMessageHandler() {
@@ -135,7 +140,7 @@ public class SimpleMessageHandler implements MessageHandler {
 
 	/**
 	 * Adds the parameter values to a given message.
-	 * 
+	 *
 	 * @param message
 	 *            localized message to add the parameter values.
 	 * @param parametersValues
@@ -159,7 +164,7 @@ public class SimpleMessageHandler implements MessageHandler {
 
 	/**
 	 * Gets a localized message from a given bundle.
-	 * 
+	 *
 	 * @param locale
 	 *            Locale for the message.
 	 * @param bundleBaseName
@@ -184,7 +189,7 @@ public class SimpleMessageHandler implements MessageHandler {
 
 	/**
 	 * Gets a localized message with the given key and parameters values of the defined type.
-	 * 
+	 *
 	 * @param type
 	 *            Type of the message. Must be annotated with {@link MessageBundle}.
 	 * @param locale
