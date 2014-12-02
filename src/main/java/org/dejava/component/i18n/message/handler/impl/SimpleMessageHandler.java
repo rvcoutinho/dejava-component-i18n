@@ -36,7 +36,7 @@ public class SimpleMessageHandler implements MessageHandler {
 	/**
 	 * The default locale attribute name.
 	 */
-	public static String LOCALE_ATTR_NAME = "locale";
+	public static final String LOCALE_ATTR_NAME = Locale.class.getSimpleName().toLowerCase();
 
 	/**
 	 * If the message handler should raise an exception when the message is not found. If false, the message
