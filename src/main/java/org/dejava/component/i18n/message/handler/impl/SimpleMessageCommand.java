@@ -49,7 +49,7 @@ public class SimpleMessageCommand implements MessageCommand {
 
 	/**
 	 * Gets the type for the message.
-	 * 
+	 *
 	 * @return The type for the message. Must be annotated with {@link MessageBundle}.
 	 */
 	public Class<?> getType() {
@@ -58,7 +58,7 @@ public class SimpleMessageCommand implements MessageCommand {
 
 	/**
 	 * Sets the type for the message.
-	 * 
+	 *
 	 * New type for the message. Must be a class annotated with {@link MessageBundle}.
 	 */
 	@Override
@@ -77,9 +77,10 @@ public class SimpleMessageCommand implements MessageCommand {
 
 	/**
 	 * Returns the parameters for the message.
-	 * 
+	 *
 	 * @return The parameters for the message.
 	 */
+	@Override
 	public Object[] getParameters() {
 		// If the array is null.
 		if (parameters == null) {
@@ -105,9 +106,10 @@ public class SimpleMessageCommand implements MessageCommand {
 
 	/**
 	 * Gets the key for the message.
-	 * 
+	 *
 	 * @return The key for the message.
 	 */
+	@Override
 	public String getMessageKey() {
 		return messageKey;
 	}
@@ -129,7 +131,7 @@ public class SimpleMessageCommand implements MessageCommand {
 
 	/**
 	 * Default message command constructor.
-	 * 
+	 *
 	 * @param type
 	 *            Type for the message. Must be annotated with {@link MessageBundle}.
 	 * @param locale

@@ -12,7 +12,7 @@ public interface MessageCommand extends Serializable {
 
 	/**
 	 * Sets the type for the message.
-	 * 
+	 *
 	 * @param type
 	 *            New type for the message.
 	 */
@@ -20,30 +20,44 @@ public interface MessageCommand extends Serializable {
 
 	/**
 	 * Gets the locale for the message.
-	 * 
+	 *
 	 * @return The locale for the message.
 	 */
 	Locale getLocale();
 
 	/**
 	 * Sets the locale for the message.
-	 * 
+	 *
 	 * @param locale
 	 *            New locale for the message.
 	 */
 	void setLocale(final Locale locale);
 
 	/**
+	 * Gets the key for the message.
+	 *
+	 * @return The key for the message.
+	 */
+	public String getMessageKey();
+
+	/**
 	 * Sets the key for the message.
-	 * 
+	 *
 	 * @param messageKey
 	 *            New key for the message.
 	 */
 	void setMessageKey(final String messageKey);
 
 	/**
+	 * Returns the parameters for the message.
+	 *
+	 * @return The parameters for the message.
+	 */
+	public Object[] getParameters();
+
+	/**
 	 * Sets the parameters for the message.
-	 * 
+	 *
 	 * @param parameters
 	 *            New parameters for the message.
 	 */
@@ -51,7 +65,7 @@ public interface MessageCommand extends Serializable {
 
 	/**
 	 * Gets a message by evaluating the given information.
-	 * 
+	 *
 	 * @param messageHandler
 	 *            The message handler to be used.
 	 * @return The evaluated localized message.
@@ -62,7 +76,7 @@ public interface MessageCommand extends Serializable {
 
 	/**
 	 * Adds a message to the application context by evaluating the given information.
-	 * 
+	 *
 	 * @param appMessageHandler
 	 *            The application message handler to be used.
 	 * @throws MessageNotFoundException
